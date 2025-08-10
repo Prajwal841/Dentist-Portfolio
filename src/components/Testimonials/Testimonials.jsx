@@ -212,16 +212,16 @@ const Testimonials = () => {
           viewport={{ once: true, threshold: 0.3 }}
         >
           <div className={styles.stat}>
-            <h3>5000+</h3>
-            <p>Happy Patients</p>
+            <h3>3+</h3>
+            <p>Publications</p>
           </div>
           <div className={styles.stat}>
-            <h3>98%</h3>
-            <p>Satisfaction Rate</p>
+            <h3>1</h3>
+            <p>Research Grant</p>
           </div>
           <div className={styles.stat}>
-            <h3>15+</h3>
-            <p>Years Experience</p>
+            <h3>20+</h3>
+            <p>Workshops Attended</p>
           </div>
         </motion.div>
       </div>
