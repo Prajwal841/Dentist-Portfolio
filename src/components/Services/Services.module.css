@@ -1,0 +1,142 @@
+.services {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.header h2 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.header p {
+  color: var(--text-primary);
+  opacity: 0.8;
+  font-size: 1.1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.serviceCard {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.serviceCard:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.iconContainer {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.cardHeader h3 {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.serviceCard p {
+  color: var(--text-primary);
+  opacity: 0.8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cta {
+  text-align: center;
+  padding: 3rem;
+  background: var(--glass);
+  border-radius: var(--radius);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+.cta p {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.ctaButton {
+  font-size: 1.1rem;
+  padding: 1rem 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .serviceCard {
+    padding: 1.5rem;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .iconContainer {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cardHeader h3 {
+    font-size: 1.2rem;
+  }
+
+  .cta {
+    padding: 2rem 1.5rem;
+  }
+}

@@ -1,0 +1,78 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.modal {
+  background: white;
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  margin: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 4px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background-color: var(--secondary);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.closeButton:hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    padding: 1.5rem;
+    margin: 1rem;
+    max-height: 85vh;
+  }
+  
+  .overlay {
+    padding: 0.5rem;
+  }
+}

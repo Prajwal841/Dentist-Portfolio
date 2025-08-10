@@ -1,0 +1,433 @@
+.contact {
+  padding: 5rem 0;
+  background: var(--bg-light);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.header h2 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.header p {
+  color: var(--text-primary);
+  opacity: 0.8;
+  font-size: 1.1rem;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.formSection h3,
+.infoSection h3 {
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.formGroup label {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.formGroup input,
+.formGroup textarea {
+  padding: 1rem;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+  resize: vertical;
+  position: relative;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(44, 177, 188, 0.1);
+  transform: translateY(-2px);
+}
+
+.formGroup input:hover,
+.formGroup textarea:hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(44, 177, 188, 0.15);
+}
+
+.formGroup input.error,
+.formGroup textarea.error {
+  border-color: #ef4444;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.errorText {
+  color: #ef4444;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.submitButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.submitButton:hover::before {
+  left: 100%;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(44, 177, 188, 0.3);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+}
+
+.particle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1001;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+}
+
+.successPopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  max-width: 400px;
+  width: 90%;
+  border: 2px solid #10b981;
+}
+
+.successIcon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.6), 0 0 0 20px rgba(16, 185, 129, 0.1);
+  }
+  100% {
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  }
+}
+
+.successIcon div {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.successPopup h3 {
+  color: #10b981;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.successPopup p {
+  color: #6b7280;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.successActions {
+  display: flex;
+  justify-content: center;
+}
+
+.closeButton {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.closeButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.closeButton:active {
+  transform: translateY(0);
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modal Form Styles */
+.modalForm {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.modalTitle {
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.modalForm .form {
+  gap: 1.2rem;
+}
+
+.modalForm .formGroup {
+  gap: 0.4rem;
+}
+
+.modalForm .formGroup label {
+  font-size: 0.85rem;
+}
+
+.modalForm .formGroup input,
+.modalForm .formGroup textarea {
+  padding: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.modalForm .submitButton {
+  margin-top: 1.5rem;
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--glass);
+  border-radius: var(--radius);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.contactItem:hover {
+  transform: translateY(-2px);
+}
+
+.iconContainer {
+  width: 50px;
+  height: 50px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.infoContent h4 {
+  color: var(--text-primary);
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+}
+
+.infoContent a,
+.infoContent span {
+  color: var(--text-primary);
+  opacity: 0.8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.infoContent a:hover {
+  color: var(--primary);
+}
+
+.mapContainer {
+  margin-bottom: 2rem;
+}
+
+.mapPlaceholder {
+  height: 200px;
+  background: var(--glass);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--primary);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+}
+
+.mapPlaceholder p {
+  font-weight: 600;
+  margin: 0;
+}
+
+.mapPlaceholder span {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.ctaButton {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contactItem {
+    padding: 1rem;
+  }
+
+  .iconContainer {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mapPlaceholder {
+    height: 150px;
+  }
+
+  .modalForm {
+    padding: 0 1rem;
+  }
+
+  .modalTitle {
+    font-size: 1.5rem;
+  }
+
+  .successPopup {
+    padding: 2rem 1.5rem;
+    max-width: 90%;
+    margin: 0 1rem;
+  }
+
+  .successIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .successIcon div {
+    font-size: 2rem;
+  }
+
+  .successPopup h3 {
+    font-size: 1.3rem;
+  }
+
+  .successPopup p {
+    font-size: 0.9rem;
+  }
+}

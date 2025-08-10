@@ -1,0 +1,417 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modalContent {
+  background: var(--bg-secondary);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 2rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg-secondary);
+  border-radius: 20px 20px 0 0;
+  z-index: 10;
+}
+
+.modalHeader h2 {
+  color: var(--text-primary);
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeButton:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+.closeButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.appointmentForm {
+  padding: 0 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.formGroup label svg {
+  color: var(--primary);
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+  padding: 1rem;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  resize: vertical;
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+  color: var(--text-light);
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(44, 177, 188, 0.1);
+  transform: translateY(-2px);
+}
+
+.formGroup input:hover,
+.formGroup select:hover,
+.formGroup textarea:hover {
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.formGroup input.error,
+.formGroup select.error,
+.formGroup textarea.error {
+  border-color: var(--error-color, #ef4444);
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.errorText {
+  color: var(--error-color, #ef4444);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  animation: fadeIn 0.3s ease;
+}
+
+.helpText {
+  color: var(--text-light);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+.suggestionText {
+  color: var(--primary);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.serviceChip {
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border);
+  border-radius: 25px;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  text-align: center;
+}
+
+.serviceChip:hover {
+  background: var(--border);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.serviceChip.selected {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  box-shadow: 0 4px 15px rgba(44, 177, 188, 0.3);
+}
+
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  box-shadow: 0 4px 15px rgba(44, 177, 188, 0.3);
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(44, 177, 188, 0.4);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submitButton svg {
+  color: white;
+}
+
+/* Success Message */
+.successMessage {
+  padding: 3rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex: 1;
+  min-height: 400px;
+  background: var(--bg-tertiary);
+  border-radius: 20px;
+  margin: 1rem;
+}
+
+.successIcon {
+  color: var(--success-color, #10b981);
+  margin-bottom: 1rem;
+}
+
+.successMessage h3 {
+  color: var(--success-color, #10b981);
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.successMessage p {
+  color: var(--text-light);
+  margin: 0;
+  line-height: 1.6;
+  font-size: 1rem;
+  max-width: 400px;
+}
+
+.appointmentDetails {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.appointmentDetails p {
+  margin: 0.5rem 0;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.appointmentDetails strong {
+  color: var(--success-color, #10b981);
+  font-weight: 600;
+}
+
+/* Dark mode specific styles */
+.dark-mode .modalContent {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+}
+
+.dark-mode .modalHeader {
+  background: var(--bg-secondary);
+  border-bottom-color: var(--border);
+}
+
+.dark-mode .formGroup input,
+.dark-mode .formGroup select,
+.dark-mode .formGroup textarea {
+  background: var(--bg-primary);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+.dark-mode .formGroup input::placeholder,
+.dark-mode .formGroup textarea::placeholder {
+  color: var(--text-light);
+}
+
+.dark-mode .serviceChip {
+  background: var(--bg-primary);
+  border-color: var(--border);
+  color: var(--text-primary);
+}
+
+.dark-mode .serviceChip:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--primary);
+}
+
+.dark-mode .appointmentDetails {
+  background: var(--bg-primary);
+  border-color: var(--border);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modalContent {
+    max-width: 95%;
+    margin: 0 0.5rem;
+  }
+
+  .modalHeader {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+
+  .modalHeader h2 {
+    font-size: 1.5rem;
+  }
+
+  .appointmentForm {
+    padding: 0 1.5rem 1.5rem;
+    gap: 1.2rem;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .serviceChip {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .submitButton {
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .successMessage {
+    padding: 2rem 1.5rem;
+  }
+
+  .successMessage h3 {
+    font-size: 1.3rem;
+  }
+
+  .successMessage p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modalOverlay {
+    padding: 0.5rem;
+  }
+
+  .modalContent {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 15px;
+  }
+
+  .modalHeader {
+    padding: 1.2rem 1.2rem 1rem;
+  }
+
+  .appointmentForm {
+    padding: 0 1.2rem 1.2rem;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}
